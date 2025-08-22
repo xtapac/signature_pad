@@ -1,9 +1,6 @@
 const wrapper = document.getElementById("signature-pad");
 const canvasWrapper = document.getElementById("canvas-wrapper");
 const clearButton = wrapper.querySelector("[data-action=clear]");
-const changeBackgroundColorButton = wrapper.querySelector("[data-action=change-background-color]");
-const changeColorButton = wrapper.querySelector("[data-action=change-color]");
-const changeWidthButton = wrapper.querySelector("[data-action=change-width]");
 const speedDefaultButton = wrapper.querySelector("[data-action=speed-default]");
 const speedFastButton = wrapper.querySelector("[data-action=speed-fast]");
 const undoButton = wrapper.querySelector("[data-action=undo]");
@@ -127,25 +124,6 @@ redoButton.addEventListener("click", () => {
     data.push(undoData.pop());
     signaturePad.fromData(data);
   }
-});
-
-changeBackgroundColorButton.addEventListener("click", () => {
-  signaturePad.backgroundColor = randomColor();
-  const data = signaturePad.toData();
-  signaturePad.clear();
-  signaturePad.fromData(data);
-});
-
-changeColorButton.addEventListener("click", () => {
-  signaturePad.penColor = randomColor();
-});
-
-changeWidthButton.addEventListener("click", () => {
-  const min = Math.round(Math.random() * 100) / 10;
-  const max = Math.round(Math.random() * 100) / 10;
-
-  signaturePad.minWidth = Math.min(min, max);
-  signaturePad.maxWidth = Math.max(min, max);
 });
 
 speedDefaultButton.addEventListener("click", () => {
