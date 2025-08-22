@@ -4,6 +4,8 @@ const clearButton = wrapper.querySelector("[data-action=clear]");
 const changeBackgroundColorButton = wrapper.querySelector("[data-action=change-background-color]");
 const changeColorButton = wrapper.querySelector("[data-action=change-color]");
 const changeWidthButton = wrapper.querySelector("[data-action=change-width]");
+const speedDefaultButton = wrapper.querySelector("[data-action=speed-default]");
+const speedFastButton = wrapper.querySelector("[data-action=speed-fast]");
 const undoButton = wrapper.querySelector("[data-action=undo]");
 const redoButton = wrapper.querySelector("[data-action=redo]");
 const savePNGButton = wrapper.querySelector("[data-action=save-png]");
@@ -144,6 +146,16 @@ changeWidthButton.addEventListener("click", () => {
 
   signaturePad.minWidth = Math.min(min, max);
   signaturePad.maxWidth = Math.max(min, max);
+});
+
+speedDefaultButton.addEventListener("click", () => {
+  signaturePad.throttle = 16;
+  console.log("Throttle", signaturePad.throttle);
+});
+
+speedFastButton.addEventListener("click", () => {
+  signaturePad.throttle = 0;
+  console.log("Throttle", signaturePad.throttle);
 });
 
 savePNGButton.addEventListener("click", () => {
